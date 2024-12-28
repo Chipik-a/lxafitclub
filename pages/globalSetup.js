@@ -16,6 +16,9 @@ async function globalSetup() {
 
     await page.waitForURL('https://lxafitclub.passion.io/app/products')
 
+    await context.storageState({ path: 'state.json'})
+
+    await browser.close();
 }
 
 export default globalSetup;
