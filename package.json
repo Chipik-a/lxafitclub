@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-playwright": "^2.1.0",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "prettier": "3.4.2"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
