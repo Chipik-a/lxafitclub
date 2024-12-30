@@ -1,7 +1,9 @@
-
-import {LoginPage} from "./loginPage"
-import {acceptCookies} from "./utils/acceptCookies";
+import {chromium} from "@playwright/test";
+import {LoginPage} from "../pages/loginPage"
+import {acceptCookies} from "../pages/utils/acceptCookies";
 import {testUser} from "../data/userData";
+import {mkdir} from "node:fs/promises";
+//import path from "path";
 
 async function globalSetup() {
     const browser = await chromium.launch() //запускаем браузер
@@ -16,7 +18,10 @@ async function globalSetup() {
 
     await page.waitForURL('https://lxafitclub.passion.io/app/products')
 
-    await context.storageState({ path: 'state.json'})
+    await mkdir('./storage', { recursive: true }); //создаем папку storage
+    const state = await context.storageState(); // Получаем состояние контекста
+    console.log('Saving state:', state); // Логируем состояние для отладки
+    await context.storageState({ path: './storage/state.json'})
 
     await browser.close();
 }

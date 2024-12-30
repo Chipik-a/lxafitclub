@@ -7,12 +7,12 @@ export class LoginPage {
         this.passwordInput = page.getByRole('textbox', {name: 'Add your password here'})
         this.loginButton = page.getByText('Log in').last()
         this.coursesButton = page.getByText('Курси')
-
     }
 
     async login(testUser) {
         await this.emailInput.fill(testUser.email)
         await this.passwordInput.fill(testUser.password)
+        await this.loginButton.scrollIntoViewIfNeeded()
         await this.loginButton.click()
     }
 

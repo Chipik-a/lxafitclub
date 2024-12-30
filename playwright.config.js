@@ -1,5 +1,5 @@
 // @ts-check
-// const { defineConfig, devices } = require('@playwright/test');
+//const { defineConfig, devices } = require('@playwright/test');
 const {resolve} = require("node:path")
 import { defineConfig } from '@playwright/test';
 import dotenv from 'dotenv';
