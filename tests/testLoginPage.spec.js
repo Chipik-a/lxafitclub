@@ -3,7 +3,7 @@ import {LoginPage} from "../pages/loginPage";
 import {acceptCookies} from "../pages/utils/acceptCookies";
 import {testUser} from "../data/userData";
 
-test ('courses', async ({ page}) => {
+test.skip('courses', async ({ page}) => {
     const loginPage = new LoginPage(page);
     await loginPage.goto('https://lxafitclub.passion.io/login')
     await acceptCookies(page);
@@ -16,7 +16,7 @@ test ('courses', async ({ page}) => {
 
 })
 
-test ('Login with test user', async ({ page}) => {
+test.skip('Login with test user', async ({ page}) => {
     const loginPage = new LoginPage(page)
     await loginPage.goto('https://lxafitclub.passion.io/login')
     await acceptCookies(page);

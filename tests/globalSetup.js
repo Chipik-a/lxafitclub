@@ -5,7 +5,30 @@ import {testUser} from "../data/userData";
 import {mkdir} from "node:fs/promises";
 //import path from "path";
 
-async function globalSetup() {
+// async function globalSetup() {
+//     const browser = await chromium.launch() //запускаем браузер
+//     const context = await browser.newContext() //создаем новый контекст
+//     const page = await context.newPage()//открывваем старницу
+//
+//     const loginPage = new LoginPage(page)
+//     await loginPage.goto('https://lxafitclub.passion.io/login')
+//     await acceptCookies(page);
+//     await loginPage.login(testUser)
+//     await loginPage.loginButton.click();
+//
+//     await page.waitForURL('https://lxafitclub.passion.io/app/products')
+//
+//     await mkdir('./storage', { recursive: true }); //создаем папку storage
+//     const state = await context.storageState(); // Получаем состояние контекста
+//     console.log('Saving state:', state); // Логируем состояние для отладки
+//     await context.storageState({ path: './storage/state.json'})
+//
+//     await browser.close();
+// }
+
+import { test } from '@playwright/test';
+
+test('create new database', async ({  }) => {
     const browser = await chromium.launch() //запускаем браузер
     const context = await browser.newContext() //создаем новый контекст
     const page = await context.newPage()//открывваем старницу
@@ -20,10 +43,11 @@ async function globalSetup() {
 
     await mkdir('./storage', { recursive: true }); //создаем папку storage
     const state = await context.storageState(); // Получаем состояние контекста
-    console.log('Saving state:', state); // Логируем состояние для отладки
+    // console.log('Saving state:', state); // Логируем состояние для отладки
     await context.storageState({ path: './storage/state.json'})
 
     await browser.close();
-}
+    // Initialize the database
+});
 
-export default globalSetup;
+//export default globalSetup;
