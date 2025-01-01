@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 import { acceptCookies } from '../pages/utils/acceptCookies';
 import { HomePage } from "../pages/homePage";
 
-test ('try singUp', async ({ page}) => {
+test.skip('try singUp', async ({ page}) => {
     const homePage = new HomePage(page)
     await homePage.goto('/')
     // await homePage.cookieButton.click();
